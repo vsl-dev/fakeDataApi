@@ -1,0 +1,28 @@
+POST http://localhost:8888/api/number HTTP/1.1
+content-type: application/json
+
+{
+    "locale": "az",
+    "custom": "+999-999-999-99-929199"
+}
+
+###
+
+POST http://localhost:8888/api/email HTTP/1.1
+content-type: application/json
+
+{
+    "locale": "random",
+    "customDomain": "mineshaft.org"
+}
+
+###
+
+POST http://localhost:8888/api/human HTTP/1.1
+content-type: application/json
+
+{
+    "locale": "az",
+    "type": "human"
+}
+

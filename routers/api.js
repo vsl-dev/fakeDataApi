@@ -14,7 +14,14 @@ const apiLimiter = rateLimit({
   },
 });
 
-import { randomUser } from "../lib/userGen.js";
+import {
+  randomAccount,
+  randomEmail,
+  randomHuman,
+  randomPhoneNum,
+} from "../lib/fakeGen.js";
+
+router.use(apiLimiter);
 
 router.get("/", (req, res) => {
   res.status(200).json({ code: 200, message: "Ok" });
@@ -22,8 +29,35 @@ router.get("/", (req, res) => {
 
 // Api
 
-router.get("/user", (req, res) => {
-  res.status(200).json({ code: 200, message: "Ok", data: randomUser() ?? {} });
+router.post("/human", (req, res) => {
+  const type = req.body.type;
+  const locale = req.body.locale;
+  var Data;
+  switch (type) {
+    case "account":
+      Data = randomAccount(locale);
+      break;
+    case "human":
+      Data = randomHuman(locale);
+      break;
+    default:
+      res.status(400).json({ code: 400, message: "Invalid type" });
+  }
+  res.status(200).json({ code: 200, message: "Ok", data: Data ?? {} });
+});
+
+router.post("/phoneNumber", (req, res) => {
+  const custom = req.body.custom;
+  const locale = req.body.locale;
+  var Data = randomPhoneNum(locale, custom);
+  res.status(200).json({ code: 200, message: "Ok", data: Data ?? {} });
+});
+
+router.post("/email", (req, res) => {
+  const locale = req.body.locale;
+  const custom = req.body.customDomain
+  var Data = randomEmail(locale, custom);
+  res.status(200).json({ code: 200, message: "Ok", data: Data ?? {} });
 });
 
 // 404 page
