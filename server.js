@@ -29,5 +29,5 @@ app.get("/*", (req, res) => {
 });
 
 app.listen(8888, () => {
-  console.log("App is running on port ---> http://localhost:8888");
+  console.log("App is running on http://localhost:8888 --- https://vsldev.tk");
 });
