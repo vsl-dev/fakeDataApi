@@ -7,8 +7,8 @@
 
 ### Endpoints
 
-`Human` - Generates random human data
-`Account` - Generates random account
-`Bank Account` - Generates random bank accountand card (Note: Cards are fake)
-`Phone Number` - Generates phone numbers
-`Emails` - Generate random emails
+- `Human` - Generates random human data
+- `Account` - Generates random account
+- `Bank Account` - Generates random bank accountand card (Note: Cards are fake)
+- `Phone Number` - Generates phone numbers
+- `Emails` - Generate random emails
