@@ -1,8 +1,0 @@
-POST http://localhost:8888/api/massiveData HTTP/1.1
-content-type: application/json
-
-{
-    "locale": "az",
-    "type": "human",
-    "itemCount": 10
-}
